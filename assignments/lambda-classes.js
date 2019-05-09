@@ -64,6 +64,18 @@ class ProjectManager extends Instructor {
 
 //////////////////////Test////////////////////////////
 
+const devin = new Person({
+    name: "Devin",
+    age: 21,
+    location: "Texas"
+});
+
+const alexis = new Person({
+    name: "Alexis",
+    age: 25,
+    location: "College Station"
+});
+
 const joshuaWood = new ProjectManager({
     name: 'Joshua Wood',
     location: 'Lambda Land',
@@ -75,14 +87,58 @@ const joshuaWood = new ProjectManager({
     favInstructor: `Josh Knell`
 });
 
+const olympia = new ProjectManager({
+    name: 'Olympia Woj',
+    location: 'Lambda Land',
+    age: 28,
+    favLanguage: 'JavaScript',
+    specialty: 'Back-end',
+    catchPhrase: `yayyyyyyy hi`,
+    gradClassName: `web17`,
+    favInstructor: `Dan Levy`
+});
+
+const danLevy = new Instructor({
+    name: 'Dan Levy',
+    location: 'Lambda Land',
+    age: 35,
+    specialty: 'Back-end',
+    favLanguage: 'JavaScript',
+    catchPhrase: 'uhhhh'
+});
+
+const joshKnell = new Instructor({
+    name: 'Josh Knell',
+    location: 'Lambda Land',
+    age: 35,
+    specialty: 'Everything',
+    favLanguage: 'JavaScript',
+    catchPhrase: 'banana'
+});
+
 const winnieSong = new Student({
     name: 'Winnie Song',
     location: 'FLushing',
     age: 22,
     previousBackground: `MUA`,
     className: `web20`,
-    favSubjects: ['CSS', 'HTML', 'LESS']
+    favSubjects: ['CSS', 'HTML', 'LESS'],
+    grade: 80
 });
 
+const micah = new Student({
+    name: 'Micah',
+    location: 'Provo',
+    age: 23,
+    previousBackground: 'Office Manager',
+    className: 'Web 20',
+    favSubjects: ['CSS', 'JS', 'HTML'],
+    grade: 50
+  });
+
+devin.speak();
+alexis.speak();
 joshuaWood.standUp(`slack20`);
-joshuaWood.debugsCode(winnieSong, `JavaScript`);
+olympia.debugsCode(micah, `CSS`);
+danLevy.grade(winnieSong, 'CSS');
+joshKnell.demo('React');
