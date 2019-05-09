@@ -24,6 +24,9 @@ class Instructor extends Person {
     grade(student, subject){
         console.log (`${student.name} receives a perfect score on ${subject}`);
     }
+    gradeStudent(student){
+        console.log(student.grade += (Math.floor(Math.random()*100)));
+    }
 }
 
 class Student extends Person {
@@ -32,6 +35,7 @@ class Student extends Person {
         this.previousBackground = attr.previousBackground;
         this.className = attr.className;
         this.favSubjects = attr.favSubjects;
+        this.grade = attr.grade;
     }
     listsSubjects(){
         this.favSubjects.forEach(subject => {
@@ -44,10 +48,10 @@ class Student extends Person {
     sprintChallenge(subject){
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
     }
-    graduate(grade){
-        if(grade >= 70){
+    graduate(){
+        if(this.grade >= 70){
             console.log (`Yay ${this.name} you can graduate`);
-        } else{
+        } else {
             console.log (`sorry ${this.name}... flex time`);
         }
     }
@@ -130,7 +134,7 @@ const winnieSong = new Student({
     previousBackground: `MUA`,
     className: `web20`,
     favSubjects: ['CSS', 'HTML', 'LESS'],
-    grade: 80
+    grade: 0
 });
 
 const micah = new Student({
@@ -140,7 +144,7 @@ const micah = new Student({
     previousBackground: 'Office Manager',
     className: 'Web 20',
     favSubjects: ['CSS', 'JS', 'HTML'],
-    grade: 50
+    grade: 0
   });
 
   const Ramses = new Student({
@@ -160,5 +164,7 @@ danLevy.grade(winnieSong, 'CSS');
 joshKnell.demo('React');
 winnieSong.sprintChallenge('Javascript Fundamentals');
 Ramses.listsSubjects(`${this.favSubjects}`);
-micah.graduate(50);
-winnieSong.graduate(80)
+micah.graduate(this.grade);
+winnieSong.graduate(this.grade);
+danLevy.gradeStudent(winnieSong);
+console.log(winnieSong.grade);
