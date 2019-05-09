@@ -44,6 +44,13 @@ class Student extends Person {
     sprintChallenge(subject){
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
     }
+    graduate(grade){
+        if(grade >= 70){
+            console.log (`Yay ${this.name} you can graduate`);
+        } else{
+            console.log (`sorry ${this.name}... flex time`);
+        }
+    }
 }
 
 class ProjectManager extends Instructor {
@@ -153,3 +160,5 @@ danLevy.grade(winnieSong, 'CSS');
 joshKnell.demo('React');
 winnieSong.sprintChallenge('Javascript Fundamentals');
 Ramses.listsSubjects(`${this.favSubjects}`);
+micah.graduate(50);
+winnieSong.graduate(80)
