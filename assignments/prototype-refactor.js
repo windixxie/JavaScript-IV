@@ -8,61 +8,46 @@ Prototype Refactor
 
 */
 
-const GameObject = function(attr) {
-    this.createdAt = attr.createdAt;
-    this.name = attr.name;
-    this.dimensions = attr.dimensions;
-  
-  }
-  
-  GameObject.prototype.destroy = function() {
-    return `${this.name} was removed from the game.`
-  }
-
-
-
-  const CharacterStats = function(attr) {
-    GameObject.call(this, attr);
-    this.healthPoints = attr.healthPoints;
-  
-  };
-  
-  CharacterStats.prototype = Object.create(GameObject.prototype);
-  CharacterStats.prototype.takeDamage = function() {
-    return `${this.name} took damage.`
-  }
-  
-
-
-  const Humanoid = function(attr) {
-    CharacterStats.call(this, attr);
-    this.team = attr.team;
-    this.weapons = attr.weapons;
-    this.language = attr.language;
-  
-  }
-  
-  Humanoid.prototype = Object.create(CharacterStats.prototype);
-  Humanoid.prototype.greet = function() {
-    return `${this.name} offers a greeting in ${this.language}`;
+class GameObject {
+    constructor(attr) {
+        this.createdAt = attr.createdAt;
+        this.name = attr.name;
+        this.dimensions = attr.dimensions;
+    }
+    destroy() {
+        return `${this.name} was removed from the game.`
+      }
   }
 
-
-
-
-  const Humanoid = function(attr) {
-    CharacterStats.call(this, attr);
-    this.team = attr.team;
-    this.weapons = attr.weapons;
-    this.language = attr.language;
   
+  
+
+
+
+  class CharacterStats extends GameObject{
+    constructor(attr){
+        super(attr);
+        this.healthPoints = attr.healthPoints;
+    }
+    takeDamage() {
+        return `${this.name} took damage.`
+    }
   }
   
-  Humanoid.prototype = Object.create(CharacterStats.prototype);
-  Humanoid.prototype.greet = function() {
-    return `${this.name} offers a greeting in ${this.language}`;
+  
+
+
+  class Humanoid extends CharacterStats {
+    constructor(attr){
+        super(attr);
+        this.team = attr.team;
+        this.weapons = attr.weapons;
+        this.language = attr.language;
+    }
+    greet() {
+        return `${this.name} offers a greeting in ${this.language}`;
+      }
   }
-   
   
   
   /////////////////////////////////////////// Test ///////////////////////////////////////////////////////////
