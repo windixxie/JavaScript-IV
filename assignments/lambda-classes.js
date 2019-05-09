@@ -136,9 +136,20 @@ const micah = new Student({
     grade: 50
   });
 
+  const Ramses = new Student({
+    name: 'Ramses', 
+    age: 25, 
+    location: 'Miami', 
+    prevBackground: 'Real Estate', 
+    className: 'Web20', 
+    favSubjects: ['css', 'html', 'JS']
+});
+
 devin.speak();
 alexis.speak();
 joshuaWood.standUp(`slack20`);
 olympia.debugsCode(micah, `CSS`);
 danLevy.grade(winnieSong, 'CSS');
 joshKnell.demo('React');
+winnieSong.sprintChallenge('Javascript Fundamentals');
+Ramses.listsSubjects(`${this.favSubjects}`);
